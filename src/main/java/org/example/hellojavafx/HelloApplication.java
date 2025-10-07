@@ -17,33 +17,30 @@ import javafx.geometry.Insets;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        // --- Aba 1: UI programática ---
         VBox programmaticRoot = new VBox(12);
         programmaticRoot.setAlignment(Pos.CENTER);
         programmaticRoot.setPadding(new Insets(16));
 
-        Label programmaticLabel = new Label("UI criada 100% via código Java");
-        Button programmaticButton = new Button("Clique (programático)");
-        programmaticButton.setOnAction(e -> System.out.println("Botão programático clicado!"));
+        Label programmaticLabel = new Label("UI created using programmatic approach");
+        Button programmaticButton = new Button("Click");
+        programmaticButton.setOnAction(e -> System.out.println("Button clicked!"));
         programmaticRoot.getChildren().addAll(programmaticLabel, programmaticButton);
 
-        Tab tabProgrammatic = new Tab("Programático");
+        Tab tabProgrammatic = new Tab("Programmatic");
         tabProgrammatic.setClosable(false);
-        tabProgrammatic.setContent(programmaticRoot); // <- direto, sem StackPane
+        tabProgrammatic.setContent(programmaticRoot);
 
-        // --- Aba 2: UI via FXML ---
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Parent fxmlRoot = fxmlLoader.load();
 
         Tab tabFXML = new Tab("FXML");
         tabFXML.setClosable(false);
-        tabFXML.setContent(fxmlRoot); // <- direto, sem StackPane
+        tabFXML.setContent(fxmlRoot);
 
-        // --- TabPane ---
         TabPane tabs = new TabPane(tabProgrammatic, tabFXML);
 
         Scene scene = new Scene(tabs, 480, 320);
-        stage.setTitle("JavaFX: Programático vs FXML");
+        stage.setTitle("JavaFX: Programmatic vs FXML");
         stage.setScene(scene);
         stage.show();
     }

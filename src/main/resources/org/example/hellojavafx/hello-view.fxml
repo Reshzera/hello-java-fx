@@ -10,6 +10,6 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Label fx:id="welcomeText" text="UI via FXML"/>
+    <Label fx:id="welcomeText" text="UI using FXML"/>
     <Button text="Hello!" onAction="#onHelloButtonClick"/>
 </VBox>
